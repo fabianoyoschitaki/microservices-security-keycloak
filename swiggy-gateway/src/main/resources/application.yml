@@ -6,15 +6,10 @@ spring:
          uri: lb://SWIGGY-APP
          predicates:
            - Path=/swiggy/**
-
-
-
        - id: restaurant-service
          uri: lb://RESTAURANT-SERVICE
          predicates:
            - Path=/restaurant/**
-
-
        - id: identity-service
          uri: lb://IDENTITY-SERVICE
          predicates:
@@ -23,11 +18,12 @@ spring:
  application:
    name: SWIGGY-GATEWAY
 
+#IMPORTANT
  security:
    oauth2:
      resourceserver:
        jwt:
-         issuer-uri: http://localhost:9090/realms/springboot-microservice-realm
+         issuer-uri: http://localhost:9080/realms/giro-users-keycloak-realm #IMPORTANT set the realm we created at keycloak
 
 eureka:
   client:
